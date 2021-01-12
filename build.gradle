@@ -6,9 +6,8 @@ plugins {
 group = 'tech.connordavis'
 version = '1.0-SNAPSHOT'
 
-task stage(dependsOn: ['build', 'clean', 'jar'])
+task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
-jar.mustRunAfter build
 
 repositories {
     mavenCentral()
