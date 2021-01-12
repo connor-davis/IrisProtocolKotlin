@@ -3,8 +3,24 @@ plugins {
     id 'application'
 }
 
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
 group = 'tech.connordavis'
 version = '1.0-SNAPSHOT'
+
+sourceSets {
+    main.java.srcDir "src/main/kotlin"
+    main.resources.srcDir "src/main/resources"
+}
+
+jar {
+    manifest {
+        attributes(
+                "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+    }
+    from configurations.compile.collect { entry -> zipTree(entry) }
+}
 
 task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
