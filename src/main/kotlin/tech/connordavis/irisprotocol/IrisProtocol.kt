@@ -1,3 +1,5 @@
+package tech.connordavis.irisprotocol
+
 import java.net.InetSocketAddress
 import java.util.*
 
