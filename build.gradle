@@ -19,7 +19,7 @@ jar {
         attributes(
                 "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
     }
-    from configurations.compile.collect { entry -> zipTree(entry) }
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
 task stage(dependsOn: ['build', 'clean'])
