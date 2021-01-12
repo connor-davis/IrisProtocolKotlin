@@ -7,8 +7,8 @@ object IrisProtocol {
     @JvmStatic
     fun main(args: Array<String>) {
         val scanner = Scanner(System.`in`)
-        var name = System.getenv("UDP_NAME").orEmpty()
-        var port = System.getenv("UDP_PORT").orEmpty()
+        var name = System.getenv("NAME").orEmpty()
+        var port = System.getenv("PORT").orEmpty()
         var destinationIP = System.getenv("UDP_DESTINATION_IP").orEmpty()
         var destinationPORT = System.getenv("UDP_DESTINATION_PORT").orEmpty()
 
